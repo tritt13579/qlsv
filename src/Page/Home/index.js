@@ -1,5 +1,6 @@
+import Form from '~/components/Layout/DefaultLayout/Form';
 function Home() {
-    return <h2>Home page</h2>;
+    return <Form />;
 }
 
 export default Home;

@@ -3,7 +3,9 @@
 :root {
     --primary: #2c69a0;
     --default-layout-width: 1150px;
-    --text-color: #757575;
+    --text-color: #161823;
+
+    --font-family: 'ProximaNova', sans-serif;
 }
 
 * {
@@ -15,8 +17,9 @@
 html {
     font-size: 62.5%;
 }
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;

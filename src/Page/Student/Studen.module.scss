@@ -1,0 +1,65 @@
+table {
+    width: 100%;
+}
+
+th {
+    background-color: var(--primary);
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #ccc;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+.wrap-btn {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.wrap-btn button {
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    width: 80px;
+    height: 36px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #ddd;
+    }
+}
+.wrap-btn button p {
+    margin-left: 8px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    // display: none;
+}
+
+.show .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

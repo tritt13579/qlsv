@@ -11,9 +11,9 @@ function Sidebar() {
         <aside className={cx('wrapper')}>
             <Menu>
                 <MenuItem title="Home" to={config.routes.home} />
-                <MenuItem title="Sinh Viên" to={config.routes.student} />
-                <MenuItem title="Giảng Viên" to={config.routes.teacher} />
-                <MenuItem title="Lớp Học" to={config.routes.class} />
+                <MenuItem title="Student" to={config.routes.student} />
+                <MenuItem title="Teacher" to={config.routes.teacher} />
+                <MenuItem title="Class" to={config.routes.class} />
             </Menu>
         </aside>
     );
