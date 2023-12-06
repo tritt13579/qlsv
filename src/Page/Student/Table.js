@@ -1,21 +1,12 @@
-import { useEffect, useState } from 'react';
-
-function Table(props) {
-    const [students, setStudents] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:3001/data')
-            .then((response) => response.json())
-            .then((res) => {
-                const responseStudent = res;
-                setStudents(responseStudent);
-            })
-            .catch((error) => console.error(error));
-    }, []);
-
+function Table({ students, setSelectedStudent, selectedStudent }) {
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-GB');
+    };
+
+    const handleRadioChange = (studentIndex) => {
+        console.log(studentIndex);
+        setSelectedStudent(studentIndex);
     };
 
     return (
@@ -31,9 +22,10 @@ function Table(props) {
                             <th>Địa chỉ</th>
                             <th>email</th>
                             <th>sđt</th>
+                            <th>Chọn</th>
                         </tr>
                         {students.map((student, index) => (
-                            <tr key={index}>
+                            <tr key={student.id}>
                                 <td>{index + 1}</td>
                                 <td>{student.personal.firstName}</td>
                                 <td>{student.personal.lastName}</td>
@@ -41,6 +33,14 @@ function Table(props) {
                                 <td>{student.personal.address}</td>
                                 <td>{student.personal.email}</td>
                                 <td>{student.personal.phone}</td>
+                                <td>
+                                    <input
+                                        type="radio"
+                                        name="selectedStudent"
+                                        checked={selectedStudent === student.id}
+                                        onChange={() => handleRadioChange(student.id)}
+                                    />
+                                </td>
                             </tr>
                         ))}
                     </tbody>

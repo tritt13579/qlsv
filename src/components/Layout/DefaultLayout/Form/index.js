@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 const Form = ({ onCancelClick, onSubmit }) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [dob, setDob] = useState('');
+    const [dateOfBirth, setdateOfBirth] = useState('');
     const [address, setAddress] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -16,17 +16,45 @@ const Form = ({ onCancelClick, onSubmit }) => {
         event.preventDefault();
 
         onSubmit({
-            firstName,
-            lastName,
-            dob,
-            address,
-            email,
-            phone,
+            id: Math.floor(Math.random() * 1000) + 1,
+            personal: {
+                id: Math.floor(Math.random() * 1000) + 1,
+                firstName,
+                lastName,
+                dateOfBirth,
+                address,
+                email,
+                phone,
+            },
         });
 
         setFirstName('');
         setLastName('');
-        setDob('');
+        setdateOfBirth('');
+        setAddress('');
+        setEmail('');
+        setPhone('');
+
+        onCancelClick();
+    };
+
+    const handleSubmitButtonClick = () => {
+        onSubmit({
+            id: Math.floor(Math.random() * 1000) + 1,
+            personal: {
+                id: Math.floor(Math.random() * 1000) + 1,
+                firstName,
+                lastName,
+                dateOfBirth,
+                address,
+                email,
+                phone,
+            },
+        });
+
+        setFirstName('');
+        setLastName('');
+        setdateOfBirth('');
         setAddress('');
         setEmail('');
         setPhone('');
@@ -71,8 +99,8 @@ const Form = ({ onCancelClick, onSubmit }) => {
                         type="date"
                         className={cx('dob')}
                         name="dob"
-                        value={dob}
-                        onChange={(e) => setDob(e.target.value)}
+                        value={dateOfBirth}
+                        onChange={(e) => setdateOfBirth(e.target.value)}
                         required
                     />
                 </div>
@@ -114,7 +142,7 @@ const Form = ({ onCancelClick, onSubmit }) => {
                 </div>
 
                 <div className={cx('form-group btn-container')}>
-                    <button type="submit" className={cx('btn-submit')}>
+                    <button onClick={handleSubmitButtonClick} type="submit" className={cx('btn-submit')}>
                         Xác nhận
                     </button>
                     <button onClick={onCancelClick} type="button" className={cx('btn-cancel')}>
